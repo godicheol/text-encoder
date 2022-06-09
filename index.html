@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>text-encoder</title>
+
+    <style>
+        .box{
+            display: inline-block;
+            max-width: 223.6px;
+            width: 49%;
+            vertical-align: top;
+        }
+        .box p{
+            text-align: center;
+            font-size: 0.8rem;
+            margin: 0 0 2px 0;
+            padding: 0;
+        }
+        .box pre{
+            width: 100%;
+            min-height: 162px;
+            margin: 0 4px 0 0;
+            padding: 4px;
+            border: 1px solid #7f7f7f;
+            border-radius: 3px;
+            white-space: normal;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>text-encoder</h1>
+
+    <h4>Input</h4>
+
+    <textarea id="text-1" cols="30" rows="10"></textarea>
+
+    <div style="margin-top: 1rem; border-bottom: 1px solid;"></div>
+
+    <h4>Output</h4>
+
+    <div class="box">
+        <p>Binary</p>
+        <pre id="result-binary"></pre>
+    </div>
+    <div class="box">
+        <p>Bytes</p>
+        <pre id="result-bytes"></pre>
+    </div>
+    <div class="box">
+        <p>Hexadecimal</p>
+        <pre id="result-hex"></pre>
+    </div>
+    <div class="box">
+        <p>Decimal</p>
+        <pre id="result-decimal"></pre>
+    </div>
+    <div class="box">
+        <p>UTF-8</p>
+        <pre id="result-utf8"></pre>
+    </div>
+    <div class="box">
+        <p>Unicode</p>
+        <pre id="result-unicode"></pre>
+    </div>
+
+    <script src="dist/text-encoder.js"></script>
+    <script>
+        function evt(e) {
+            var str = document.getElementById("text-1").value;
+
+            document.getElementById("result-binary").innerHTML = te.toBinary(str).join(" ");
+            document.getElementById("result-bytes").innerHTML = te.toBytes(str).join(" ");
+            document.getElementById("result-decimal").innerHTML = te.toDecimal(str).join(" ");
+            document.getElementById("result-hex").innerHTML = te.toHex(str).join(" ");
+            document.getElementById("result-utf8").innerHTML = te.toUTF8(str).join(" ");
+            document.getElementById("result-unicode").innerHTML = te.toUnicode(str).join(" ");
+        }
+
+        document.getElementById("text-1").addEventListener("input", evt, false);
+    </script>
+</body>
+
+</html>
