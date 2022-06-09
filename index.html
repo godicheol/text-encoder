@@ -74,12 +74,12 @@
         function evt(e) {
             var str = document.getElementById("text-1").value;
 
-            document.getElementById("result-binary").innerHTML = te.toBinary(str).join(" ");
-            document.getElementById("result-bytes").innerHTML = te.toBytes(str).join(" ");
-            document.getElementById("result-decimal").innerHTML = te.toDecimal(str).join(" ");
-            document.getElementById("result-hex").innerHTML = te.toHex(str).join(" ");
-            document.getElementById("result-utf8").innerHTML = te.toUTF8(str).join(" ");
-            document.getElementById("result-unicode").innerHTML = te.toUnicode(str).join(" ");
+            document.getElementById("result-binary").innerHTML = textEncoder.toBinary(str).join(" ");
+            document.getElementById("result-bytes").innerHTML = textEncoder.toBytes(str).join(" ");
+            document.getElementById("result-decimal").innerHTML = textEncoder.toDecimal(str).join(" ");
+            document.getElementById("result-hex").innerHTML = textEncoder.toHex(str).join(" ");
+            document.getElementById("result-utf8").innerHTML = textEncoder.toUTF8(str).join(" ");
+            document.getElementById("result-unicode").innerHTML = textEncoder.toUnicode(str).join(" ");
         }
 
         document.getElementById("text-1").addEventListener("input", evt, false);

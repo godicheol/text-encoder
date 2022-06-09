@@ -191,7 +191,7 @@
         return output;
     }
 
-    if (typeof(window.te) === "undefined") {
-        window.te = exports;
+    if (typeof(window.textEncoder) === "undefined") {
+        window.textEncoder = exports;
     }
 })();
