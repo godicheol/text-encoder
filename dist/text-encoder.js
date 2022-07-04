@@ -58,7 +58,9 @@
         return buf;
     }
     exports.fromArrayBuffer = function(buf) {
-        return String.fromCharCode.apply(null, new Uint16Array(buf));
+        return new Uint16Array(buf).reduce(function (data, byte) {
+            return data + String.fromCharCode(byte);
+        }, "");
     }
     exports.toBinary = function(str) {
         var output = [];
